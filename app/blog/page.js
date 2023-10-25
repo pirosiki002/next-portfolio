@@ -19,8 +19,13 @@ const getAllBlogs = async() =>{
       slug: slug
     }
   });
-  return{
-    blogs:blogs
+  const orderdBlogs = blogs.sort((a, b) => {
+    // return b.frontmatter.id - a.frontmatter.id;
+    return a.frontmatter.id - b.frontmatter.id;
+  });
+
+  return {
+    blogs:orderdBlogs
   }
 }
 
