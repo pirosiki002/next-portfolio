@@ -17,11 +17,18 @@ const getSingleBlog = async(context) =>{
 const SingleBlog = async (props) => {
   const {singleDocument} = await getSingleBlog(props);
   return (
-    <div>
-      <h1>{singleDocument.data.title}</h1>
-      <p>{new Date(singleDocument.data.date).toLocaleDateString()}</p>
-      <ReactMarkdown>{singleDocument.content}</ReactMarkdown>
-    </div>
+      <>
+        <div>
+          {/* ここになにかあとで追加するのだと思われる */}
+        </div>
+        <div>
+          <div>
+            <h1>{singleDocument.data.title}</h1>
+            <p>{new Date(singleDocument.data.date).toLocaleDateString()}</p>
+            <ReactMarkdown>{singleDocument.content}</ReactMarkdown>
+          </div>
+        </div>
+      </>
     )
 }
 

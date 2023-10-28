@@ -34,17 +34,28 @@ const Blog = async () => {
   const {blogs} = await getAllBlogs();
   console.log(blogs);
   return (
-    <div>
-      <h1>プログページ</h1>
-      {blogs.map((blog, Index) =>
-        <div key={Index}>
-          <h2>{blog.frontmatter.title}</h2>
-          <p>{new Date(blog.frontmatter.date).toLocaleDateString()}</p>
-          <p>{blog.frontmatter.description}</p>
-          <Link href={`/blog/${blog.slug}`}>Read More</Link>
+    <>
+      <div>
+        <div>
+          <h1>Blog</h1>
+          <p>エンジニアの日常生活をお届けします</p>
+            {blogs.map((blog, Index) =>
+              <div key={Index}>
+                <div>
+                  <h2>{blog.frontmatter.title}</h2>
+                  {/* <p>{blog.frontmatter.description}</p> */}
+                  <p>{blog.frontmatter.excerpt}</p> {/*現状はなにも表示されない */}
+                  <p>{new Date(blog.frontmatter.date).toLocaleDateString()}</p>
+                  <Link href={`/blog/${blog.slug}`}>Read More</Link>
+                </div>
+                <div>
+                  {/* ここになにかあとで追加するのだと思われる */}
+                </div>
+              </div>
+            )}
         </div>
-      )}
-    </div>
+      </div>
+    </>
   );
 };
 
